@@ -12,15 +12,25 @@ services:
       - ~/docker-volumes/mosquitto/data:/mosquitto/data
       - ~/docker-volumes/mosquitto/log:/mosquitto/log
     restart: always
-#   influxdb:
-#     image: influxdb:1.7
-#     container_name: influxdb
-#     ports:
-#       - 8086:8086
-#     volumes:
-#       - ~/docker-volumes/influxdb:/var/lib/influxdb
-#     restart: always
 
+  influxdb:
+    image: influxdb:1.7-alpine
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - ~/docker-volumes/influxdb:/var/lib/influxdb
+    restart: always
+
+    telegraf:
+      image: telegraf:1.13-alpine
+      container_name: telegraf
+      ports:
+        - 8125:8125
+        - 8092:8092
+        - 8094:8094
+      volumes:
+        - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
 #   grafana:
 #     image: grafana/grafana:5.4.3
 #     container_name: grafana
