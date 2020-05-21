@@ -11,7 +11,8 @@ services:
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./mosquitto/users:/mosquitto/config/users
-      - ./mosquitto/psk:/mosquitto/config/psk
+      - ./mosquitto/ca_certificates:/mosquitto/ca_certificates
+      - ./mosquitto/certs:/mosquitto/certs
       - ~/docker-volumes/mosquitto/data:/mosquitto/data
       - ~/docker-volumes/mosquitto/log:/mosquitto/log
     restart: always

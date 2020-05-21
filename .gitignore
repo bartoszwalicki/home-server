@@ -1,1 +1,2 @@
-psk
+/mosquitto/ca_certificates
+/mosquitto/certs
