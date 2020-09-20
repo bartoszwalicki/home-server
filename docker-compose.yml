@@ -41,6 +41,7 @@ services:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
     depends_on:
       - influxdb
+    restart: always
   grafana:
     image: grafana/grafana:5.4.3
     container_name: grafana
